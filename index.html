@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Cardápio Cia da Roça Online</title>
+    <style>
+        /* * CSS: Fundo e base para posicionamento absoluto
+         */
+        html, body {
+            height: 100%; 
+            margin: 0;
+            padding: 0;
+            background-color: #F1B640; 
+            font-family: Arial, sans-serif;
+            overflow: hidden; 
+            position: relative; 
+
+            /* NOVO: Bloqueio 2 - Não permitir a seleção (cópia) de texto */
+            -webkit-user-select: none; /* Chrome, Safari e Opera */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE/Edge */
+            user-select: none;         /* Padrão */
+        }
+
+        /*
+         * 1. ESTILO DA IMAGEM: "Logo.png" (Posições Originais Mantidas)
+         */
+        #logo {
+            width: 150px; 
+            height: auto;
+            
+            /* Posições Originais Mantidas */
+            position: absolute; 
+            top: 40%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            
+            /* NOVO: Bloqueio 3 - Impede o clique/menu de contexto nas imagens */
+            pointer-events: none;
+        }
+
+        /* * 2. ESTILO DO TEXTO REMANESCENTE: "Cardápio Online" (Posições Originais Mantidas)
+         */
+        #subtitle {
+            font-size: 20px; 
+            color: #444444; 
+            font-weight: bold; 
+            
+            /* Posições Originais Mantidas */
+            position: absolute; 
+            left: 50%; 
+            top: 50%; 
+            transform: translate(-50%, 25px); 
+            
+            margin: 0; 
+        }
+
+        /* * 3. NOVO ESTILO: GIF DE CARREGAMENTO (Posições Originais Mantidas)
+         */
+        #loading-gif {
+            /* Posições Originais Mantidas */
+            position: fixed; 
+            left: 50%; 
+            bottom: 10px; 
+            transform: translateX(-50%); 
+            
+            width: 130px;
+            height: 73px; 
+            
+            /* NOVO: Bloqueio 3 - Impede o clique/menu de contexto nas imagens */
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <img src="Logo.png" alt="Logo" id="logo">
+
+    <div id="subtitle">
+        Cardápio Online
+    </div>
+
+    <img src="Carregando.gif" alt="Carregando" id="loading-gif">
+
+    <script>
+        // 
+        // JavaScript: Redireciona para o link após 1 segundo
+        //
+        const urlDestino = "https://drive.google.com/file/d/1CZ1utMW_Kd3qNv3iePoUS6kkCKx8Z-_v/view?usp=drivesdk";
+        const tempoEspera = 1000; // 1000 milissegundos = 1 segundo
+
+        setTimeout(function() {
+            // Redireciona para a URL
+            window.location.replace(urlDestino);
+        }, tempoEspera);
+        
+        // NOVO: Bloqueio 3 - Desativa o menu de contexto (clique direito/toque longo)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
